@@ -11,12 +11,12 @@
     <RepositoryUrl>https://github.com/nopCommerceBrasil/NopBrasil.Plugin.Widgets.Blog</RepositoryUrl> 
     <RepositoryType>Git</RepositoryType>
  </PropertyGroup>  
- <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-   <OutputPath>..\nopCommerce420\src\Presentation\Nop.Web\Plugins\Widgets.Blog\</OutputPath>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+   <OutputPath>D:\Fiverr\HimalayanOutpost\Presentation\Nop.Web\Plugins\Widgets.Blog\</OutputPath>
    <OutDir>$(OutputPath)</OutDir>
  </PropertyGroup>
  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-   <OutputPath>..\nopCommerce420\src\Presentation\Nop.Web\Plugins\Widgets.Blog\</OutputPath>
+   <OutputPath>D:\Fiverr\HimalayanOutpost\Presentation\Nop.Web\Plugins\Widgets.Blog\</OutputPath>
    <OutDir>$(OutputPath)</OutDir>
  </PropertyGroup>
  <!-- This target execute after "Build" target -->
@@ -53,10 +53,14 @@
    </Content>
  </ItemGroup>
   <ItemGroup>
-   <ClearPluginAssemblies Include="$(MSBuildProjectDirectory)\..\nopCommerce420\src\Build\ClearPluginAssemblies.proj" />
+    <ClearPluginAssemblies Include="$(MSBuildProjectDirectory)\..\..\Build\ClearPluginAssemblies.proj" />
  </ItemGroup>
- <ItemGroup>
-   <ProjectReference Include="..\nopCommerce420\src\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj" />
-   <ProjectReference Include="..\nopCommerce420\src\Presentation\Nop.Web\Nop.Web.csproj" />
- </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Presentation\Nop.Web\Nop.Web.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
