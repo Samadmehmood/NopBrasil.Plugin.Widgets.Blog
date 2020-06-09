@@ -1,4 +1,4 @@
-﻿using Nop.Core;
+using Nop.Core;
 using Nop.Core.Caching;
 using Nop.Core.Domain.Blogs;
 using Nop.Services.Blogs;
@@ -11,7 +11,7 @@ namespace NopBrasil.Plugin.Widgets.Blog.Service
     {
         private readonly IBlogService _blogService;
         private readonly BlogSettings _blogSettings;
-        private readonly ICacheManager _cacheManager;
+        private readonly IStaticCacheManager _cacheManager;
         private readonly IUrlRecordService _urlRecordService;
 
         public WidgetBlogService(IBlogService blogService, BlogSettings blogSettings, IStaticCacheManager cacheManager, IUrlRecordService urlRecordService)
@@ -24,7 +24,7 @@ namespace NopBrasil.Plugin.Widgets.Blog.Service
 
         private IPagedList<BlogPost> GetAllBlogPosts()
         {
-            string cacheKey = $"nopBrasil:blogPosts:qtd:{_blogSettings.QtdBlogPosts}";
+            CacheKey cacheKey = new CacheKey($"nopBrasil:blogPosts:qtd:{_blogSettings.QtdBlogPosts}");
             return _cacheManager.Get<IPagedList<BlogPost>>(cacheKey, () => _blogService.GetAllBlogPosts(pageIndex: 0, pageSize: _blogSettings.QtdBlogPosts));
         }
 
